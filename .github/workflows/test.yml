@@ -9,8 +9,8 @@ on:
   push:
     branches:
     - master
-  schedule:
-  - cron: '0 0 * * *'  # every day at midnight, to test against nightlies
+  # schedule:
+  # - cron: '0 0 * * *'  # every day at midnight, to test against nightlies
 
 jobs:
   test:
