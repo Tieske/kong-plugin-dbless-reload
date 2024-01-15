@@ -3,8 +3,8 @@ local package_name = "kong-plugin-" .. plugin_name
 local package_version = "0.1.0"
 local rockspec_revision = "1"
 
-local github_account_name = "Kong"
-local github_repo_name = "kong-plugin"
+local github_account_name = "Tieske"
+local github_repo_name = "kong-plugin-" .. plugin_name
 local git_checkout = package_version == "dev" and "master" or package_version
 
 
@@ -18,7 +18,7 @@ source = {
 
 
 description = {
-  summary = "Kong is a scalable and customizable API Management Layer built on top of Nginx.",
+  summary = "A development plugin to auto-reload Kong when files (dbless config, or plugins) change",
   homepage = "https://"..github_account_name..".github.io/"..github_repo_name,
   license = "Apache 2.0",
 }
@@ -31,8 +31,8 @@ dependencies = {
 build = {
   type = "builtin",
   modules = {
-    ["kong.plugins."..plugin_name..".handler"] = "kong/plugins/"..plugin_name.."/handler.lua",
-    ["kong.plugins."..plugin_name..".schema"] = "kong/plugins/"..plugin_name.."/schema.lua",
-    ["kong.plugins."..plugin_name..".timer"] = "kong/plugins/"..plugin_name.."/timer.lua",
+    ["kong.plugins.dbless-reload.handler"] = "kong/plugins/dbless-reload/handler.lua",
+    ["kong.plugins.dbless-reload.schema"] = "kong/plugins/dbless-reload/schema.lua",
+    ["kong.plugins.dbless-reload.timer"] = "kong/plugins/dbless-reload/timer.lua",
   }
 }
